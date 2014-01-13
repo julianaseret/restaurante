@@ -1,0 +1,31 @@
+<h1>Lista de bebidas</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Preco</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bebidas.each do |bebida| %>
+      <tr>
+        <td><%= bebida.nome %></td>
+        <td><%= bebida.tipo %></td>
+        <td><%= number_to_currency bebida.preco %></td>
+        <td><%= link_to 'Mostrar', bebida, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_bebida_path(bebida), :class => "btn btn-success" %></td>
+        <td><%= link_to 'Destruir', bebida, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Bebida', new_bebida_path, :class => "btn btn-info" %>

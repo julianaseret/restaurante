@@ -1,0 +1,31 @@
+<h1>Lista de pratos</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Preco</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pratos.each do |prato| %>
+      <tr>
+        <td><%= prato.nome %></td>
+        <td><%= prato.tipo %></td>
+        <td><%= number_to_currency prato.preco %></td>
+        <td><%= link_to 'Mostrar', prato, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_prato_path(prato), :class => "btn btn-success" %></td>
+        <td><%= link_to 'Destruir', prato, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Prato', new_prato_path, :class => "btn btn-info" %>

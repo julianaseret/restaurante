@@ -1,0 +1,35 @@
+<h1>Lista de clientes</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Endereco</th>
+      <th>Data nascimento</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.nome %></td>
+        <td><%= cliente.telefone %></td>
+        <td><%= cliente.email %></td>
+        <td><%= cliente.endereco %></td>
+        <td><%= cliente.data_nascimento %></td>
+        <td><%= link_to 'Mostrar', cliente, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente), :class => "btn btn-success" %></td>
+        <td><%= link_to 'Destruir', cliente, method: :delete, data: { confirm: 'Você tem certeza?' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Cliente', new_cliente_path, :class => "btn btn-info" %>

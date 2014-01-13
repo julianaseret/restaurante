@@ -1,0 +1,33 @@
+<h1>Lista de pedidos</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Clientes</th>
+      <th>Pratos</th>
+      <th>Bebidas</th>
+      <th>Preço</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+        <td><%= pedido.clientes.nome %></td>
+        <td><%= pedido.pratos.nome %></td>
+        <td><%= pedido.bebidas.nome %></td>
+        <td><%= number_to_currency pedido.preco %></td>
+        <td><%= link_to 'Mostrar', pedido, :class => "btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_pedido_path(pedido), :class => "btn btn-success" %></td>
+        <td><%= link_to 'Destruir', pedido, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Pedido', new_pedido_path, :class => "btn btn-info" %>

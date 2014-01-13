@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Clientes:</strong>
+  <%= @pedido.clientes %>
+</p>
+
+<p>
+  <strong>Pratos:</strong>
+  <%= @pedido.pratos %>
+</p>
+
+<p>
+  <strong>Bebidas:</strong>
+  <%= @pedido.bebidas %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>

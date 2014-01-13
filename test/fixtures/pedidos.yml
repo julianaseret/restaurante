@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clientes_id: 
+  pratos_id: 
+  bebidas_id: 
+
+two:
+  clientes_id: 
+  pratos_id: 
+  bebidas_id: 
